@@ -66,3 +66,7 @@ function newsubmit() {
         }
     });
 }
+
+
+
+console.log("hi")
