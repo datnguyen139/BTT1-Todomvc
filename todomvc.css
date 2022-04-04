@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fira sans", sans-serif;
+}
+
+body {
+    background-color: rgb(236, 220, 220);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.957);
+    width: 600px;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    padding-top: 20px;
+    box-shadow: 3px 3px 5px 5px whitesmoke;
+}
+
+.container .top {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white;
+    text-align: center;
+}
+
+.container .top h1 {
+    font-size: 100px;
+    font-weight: 300;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    text-rendering: optimizeLegibility;
+    margin-bottom: 10px;
+}
+
+#newlist {
+    margin: 0;
+    border: none;
+    width: 80%;
+    padding: 5px;
+    float: left;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgb(187, 255, 14);
+}
+
+#newsubmit {
+    border: none;
+    padding: 4px;
+    width: 20%;
+    background: #d9d9d9;
+    color: #555;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+}
+
+.to-do .text {
+    margin-bottom: 1px;
+    padding: 4px;
+    border-color: rgb(237, 227, 227);
+    width: 80%;
+    background: #d9d9d9;
+    color: #555;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.to-do .text.complete {
+    text-decoration: line-through;
+}
+
+.to-do .delete {
+    margin-left: 27px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.container .bottom {
+    margin-top: 10px;
+    display: none;
+}
+
+span {
+    margin-left: 10px;
+    margin-right: 80px;
+}
+
+ul {
+    display: inline-flex;
+    list-style-type: none;
+    margin-right: 70px;
+}
+
+ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a {
+    color: black;
+}
+
+.clearall {
+    margin-left: 30px;
+    border: none;
+    background-color: white;
+}
