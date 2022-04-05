@@ -62,8 +62,16 @@ body {
     flex-direction: column;
 }
 
+.to-do .checkbox {
+    border: none;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
 .to-do .text {
-    margin-bottom: 1px;
+    margin-right: 10px;
+    margin-bottom: 2px;
     padding: 4px;
     border-color: rgb(237, 227, 227);
     width: 80%;
@@ -73,23 +81,17 @@ body {
     border-radius: 10px;
 }
 
-.to-do .complete {
+.to-do .text.complete {
     text-decoration: line-through;
-    margin-bottom: 1px;
-    padding: 4px;
-    border-color: rgb(237, 227, 227);
-    width: 80%;
-    background: #d9d9d9;
-    color: #555;
-    font-size: 20px;
-    border-radius: 10px;
 }
 
 .to-do .delete {
-    margin-left: 27px;
+    color: darkslategray;
+    background-color: white;
+    margin-left: 5px;
     border: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 1px;
 }
 
@@ -127,7 +129,7 @@ a {
 }
 
 .clearall {
-    margin-left: 30px;
+    margin-left: 10px;
     border: none;
     background-color: white;
 }

@@ -14,19 +14,24 @@ function newsubmit() {
     new_list.appendChild(new_div);
 
     // Tao mot input moi
-    const new_todo = document.querySelector(".to-do");
-    var new_input = document.createElement("input");
+    const new_input = document.createElement("input");
     new_input.classList.add('text');
     new_input.type = 'text';
     new_input.value = list;
     new_input.setAttribute("readonly", "readonly");
     new_div.appendChild(new_input);
 
+    // tao checkbox moi
+    const new_checkbox = document.createElement("input");
+    new_checkbox.type = "checkbox"
+    new_checkbox.classList.add("checkbox");
+    new_div.appendChild(new_checkbox);
+
     // Tao mot button moi
     const new_button = document.createElement("button");
     new_button.classList.add("delete");
     new_div.appendChild(new_button);
-    new_button.innerText = "X";
+    new_button.innerText = "Del";
 
     input.value = "";
 
@@ -62,13 +67,31 @@ function newsubmit() {
     });
 
     // kiem tra list hoan thanh hay chua
-    new_input.addEventListener('click', function() {
+    new_checkbox.addEventListener('click', function() {
         if (new_input.classList == "text") {
-            new_input.classList.replace("text", "complete");
-            new_button.classList.replace("delete", "active");
+            new_input.setAttribute("id", "checked")
+            new_input.classList.add("complete");
+            new_button.setAttribute("id", "delete");
         } else {
-            new_input.classList.replace("complete", "text");
-            new_button.classList.replace("active", "delete");
+            new_input.removeAttribute("id");
+            new_input.classList.remove("complete");
+            new_button.removeAttribute("id");
+        }
+    });
+    // xem tat ca cong viec
+    document.querySelector("#all").addEventListener('click', function(e) {
+        if (new_input.classList[1] == "complete" && new_button.id == "delete") {
+            new_input.removeAttribute("style");
+            new_button.removeAttribute("style");
+            new_checkbox.removeAttribute("style");
+        }
+    });
+    // xem cong viec chua hoan thanh
+    document.querySelector("#active").addEventListener('click', function(e) {
+        if (new_input.classList[1] == "complete" && new_button.id == "delete") {
+            new_input.setAttribute("style", "display: none");
+            new_button.setAttribute("style", "display: none")
+            new_checkbox.setAttribute("style", "display: none");
         }
     });
 }
