@@ -73,11 +73,27 @@ body {
     border-radius: 10px;
 }
 
-.to-do .text.complete {
+.to-do .complete {
     text-decoration: line-through;
+    margin-bottom: 1px;
+    padding: 4px;
+    border-color: rgb(237, 227, 227);
+    width: 80%;
+    background: #d9d9d9;
+    color: #555;
+    font-size: 20px;
+    border-radius: 10px;
 }
 
 .to-do .delete {
+    margin-left: 27px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.to-do .active {
     margin-left: 27px;
     border: none;
     border-radius: 10px;

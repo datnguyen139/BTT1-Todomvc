@@ -15,18 +15,19 @@ function newsubmit() {
 
     // Tao mot input moi
     const new_todo = document.querySelector(".to-do");
-    const new_input = document.createElement("input")
+    var new_input = document.createElement("input");
     new_input.classList.add('text');
     new_input.type = 'text';
     new_input.value = list;
     new_input.setAttribute("readonly", "readonly");
     new_div.appendChild(new_input);
-    const new_button = document.createElement("button");
-    new_button.classList.add("delete");
 
     // Tao mot button moi
+    const new_button = document.createElement("button");
+    new_button.classList.add("delete");
     new_div.appendChild(new_button);
     new_button.innerText = "X";
+
     input.value = "";
 
     //in ra so luong todolist
@@ -46,27 +47,28 @@ function newsubmit() {
         }
     }
 
-    //su kien edit todolist
+    // edit todolist
     new_input.addEventListener('dblclick', function() {
         new_input.removeAttribute("readonly");
     });
     new_input.addEventListener('mouseout', function() {
         new_input.setAttribute("readonly", "readonly");
     });
+
+    // xoa tat cac cac list
     document.querySelector(".clearall").addEventListener('click', function() {
         document.querySelector(".middle").removeChild(new_div);
         document.querySelector(".bottom").setAttribute("style", "display: none");
     });
+
+    // kiem tra list hoan thanh hay chua
     new_input.addEventListener('click', function() {
-        var count_class_text = document.querySelectorAll(".text")
         if (new_input.classList == "text") {
-            new_input.classList.add("complete");
+            new_input.classList.replace("text", "complete");
+            new_button.classList.replace("delete", "active");
         } else {
-            new_input.classList.remove("complete");
+            new_input.classList.replace("complete", "text");
+            new_button.classList.replace("active", "delete");
         }
     });
 }
-
-
-
-console.log("hi")
