@@ -1,6 +1,14 @@
 const input = document.querySelector("#newlist");
 const new_list = document.querySelector(".middle");
 const container = document.querySelector(".container");
+const class_input = ["text", "complete", "checkbox"]
+const id_input = ["check", "checked"]
+
+function rmattb() {
+    new_input.removeAttribute("style");
+    new_button.removeAttribute("style");
+    new_checkbox.removeAttribute("style");
+}
 
 function newsubmit() {
     const list = input.value;
@@ -8,26 +16,27 @@ function newsubmit() {
         alert("Bạn hãy nhập công việc cần làm");
         return;
     }
-    // Tao mot div moi
+    // creat new div
     const new_div = document.createElement("div");
     new_div.classList.add("to-do");
     new_list.appendChild(new_div);
 
-    // Tao mot input moi
+    // creat new input
     const new_input = document.createElement("input");
-    new_input.classList.add('text');
-    new_input.type = 'text';
+    new_input.classList.add(class_input[0]);
+    new_input.setAttribute("id", id_input[0]);
+    new_input.type = class_input[0];
     new_input.value = list;
     new_input.setAttribute("readonly", "readonly");
     new_div.appendChild(new_input);
 
-    // tao checkbox moi
+    // creat new input checkbox
     const new_checkbox = document.createElement("input");
-    new_checkbox.type = "checkbox"
-    new_checkbox.classList.add("checkbox");
+    new_checkbox.type = class_input[2]
+    new_checkbox.classList.add(class_input[2]);
     new_div.appendChild(new_checkbox);
 
-    // Tao mot button moi
+    // creat new button
     const new_button = document.createElement("button");
     new_button.classList.add("delete");
     new_div.appendChild(new_button);
@@ -35,12 +44,12 @@ function newsubmit() {
 
     input.value = "";
 
-    //in ra so luong todolist
-    var count = document.querySelectorAll(".to-do");
+    //amount of todo
+    var count = document.querySelectorAll("#check");
     document.querySelector("strong").innerHTML = count.length;
     document.querySelector(".bottom").setAttribute("style", "display: inline-block");
 
-    // su kien xoa todolist
+    // remove todo
     new_button.addEventListener('click', removelist);
 
     function removelist() {
@@ -52,7 +61,7 @@ function newsubmit() {
         }
     }
 
-    // edit todolist
+    // edit todo
     new_input.addEventListener('dblclick', function() {
         new_input.removeAttribute("readonly");
     });
@@ -60,38 +69,66 @@ function newsubmit() {
         new_input.setAttribute("readonly", "readonly");
     });
 
-    // xoa tat cac cac list
-    document.querySelector(".clearall").addEventListener('click', function() {
-        document.querySelector(".middle").removeChild(new_div);
-        document.querySelector(".bottom").setAttribute("style", "display: none");
-    });
-
-    // kiem tra list hoan thanh hay chua
-    new_checkbox.addEventListener('click', function() {
-        if (new_input.classList == "text") {
-            new_input.setAttribute("id", "checked")
-            new_input.classList.add("complete");
-            new_button.setAttribute("id", "delete");
-        } else {
-            new_input.removeAttribute("id");
-            new_input.classList.remove("complete");
-            new_button.removeAttribute("id");
+    // clear todo completed
+    document.querySelector(".clearcompleted").addEventListener('click', function() {
+        if (new_input.classList[1] == class_input[1] && new_input.id == id_input[1]) {
+            document.querySelector(".middle").removeChild(new_div)
+        }
+        var newcount = document.querySelector(".to-do");
+        if (newcount.length == 0) {
+            document.querySelector(".bottom").setAttribute("style", "display: none");
         }
     });
-    // xem tat ca cong viec
-    document.querySelector("#all").addEventListener('click', function(e) {
-        if (new_input.classList[1] == "complete" && new_button.id == "delete") {
+
+    // tick todo not complete or completed
+    new_checkbox.addEventListener('click', function() {
+        if (new_input.classList.value === class_input[0]) {
+            new_input.setAttribute("id", id_input[1])
+            new_input.classList.add(class_input[1]);
+        } else {
+            new_input.setAttribute("id", id_input[0]);
+            new_input.classList.remove(class_input[1]);
+        }
+        var todo_done = document.querySelectorAll("#check");
+        document.querySelector("strong").innerHTML = todo_done.length;
+
+    });
+
+    // show all todo
+    document.querySelector("#all").addEventListener('click', function() {
+        console.log(typeof(new_input.removeAttribute("style")))
+        new_input.removeAttribute("style");
+        new_button.removeAttribute("style");
+        new_checkbox.removeAttribute("style");
+    });
+
+    // show todo active
+    document.querySelector("#active").addEventListener('click', function() {
+        if (new_input.classList[1] === class_input[1] && new_input.id === id_input[1]) {
+            new_input.setAttribute("style", "display: none");
+            new_button.setAttribute("style", "display: none");
+            new_checkbox.setAttribute("style", "display: none");
+        }
+        if (new_input.classList[0] === class_input[0] && new_input.id === id_input[0]) {
             new_input.removeAttribute("style");
             new_button.removeAttribute("style");
             new_checkbox.removeAttribute("style");
         }
     });
-    // xem cong viec chua hoan thanh
-    document.querySelector("#active").addEventListener('click', function(e) {
-        if (new_input.classList[1] == "complete" && new_button.id == "delete") {
+
+    // show todo complete
+    document.querySelector("#completed").addEventListener('click', function() {
+        if (new_input.classList[0] === class_input[0] && new_input.id === id_input[0]) {
             new_input.setAttribute("style", "display: none");
-            new_button.setAttribute("style", "display: none")
+            new_button.setAttribute("style", "display: none");
             new_checkbox.setAttribute("style", "display: none");
         }
+        if (new_input.classList[1] === class_input[1] && new_input.id === id_input[1]) {
+            new_input.removeAttribute("style");
+            new_button.removeAttribute("style");
+            new_checkbox.removeAttribute("style");
+        }
+
     });
+
 }

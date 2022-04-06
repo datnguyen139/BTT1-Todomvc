@@ -22,7 +22,7 @@ body {
 
 .container .top {
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     color: white;
     text-align: center;
 }
@@ -116,19 +116,19 @@ span {
 ul {
     display: inline-flex;
     list-style-type: none;
-    margin-right: 70px;
+    margin-right: 40px;
 }
 
 ul li {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 a {
     color: black;
 }
 
-.clearall {
+.clearcompleted {
     margin-left: 10px;
     border: none;
     background-color: white;
