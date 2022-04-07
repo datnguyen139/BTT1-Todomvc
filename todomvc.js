@@ -82,12 +82,14 @@ function newsubmit() {
 
     // tick todo not complete or completed
     new_checkbox.addEventListener('click', function() {
-        if (new_input.classList.value === class_input[0]) {
+        if (new_input.classList[0] === class_input[0] && new_input.id === id_input[0]) {
             new_input.setAttribute("id", id_input[1])
             new_input.classList.add(class_input[1]);
-        } else {
+            new_checkbox.checked = true;
+        } else if (new_input.classList[1] === class_input[1] && new_input.id === id_input[1]) {
             new_input.setAttribute("id", id_input[0]);
             new_input.classList.remove(class_input[1]);
+            new_checkbox.checked = false;
         }
         var todo_done = document.querySelectorAll("#check");
         document.querySelector("strong").innerHTML = todo_done.length;
@@ -128,7 +130,22 @@ function newsubmit() {
             new_button.removeAttribute("style");
             new_checkbox.removeAttribute("style");
         }
-
     });
-
+    let count_checked = document.querySelectorAll("input[checkbox]:checked").length
+    document.querySelector(".choseall").addEventListener('click', function() {
+        const task_num = document.querySelectorAll(".to-do")
+        if (count_checked == task_num.length) {
+            new_input.setAttribute("id", id_input[0]);
+            new_input.classList.remove(class_input[1]);
+            new_checkbox.checked = false
+            count_checked = 0;
+            document.querySelector("strong").innerHTML = task_num.length
+            return
+        }
+        new_input.setAttribute("id", id_input[1]);
+        new_input.classList.add(class_input[1]);
+        new_checkbox.checked = true
+        count_checked = document.querySelectorAll(".to-do").length
+        document.querySelector("strong").innerHTML = 0
+    })
 }
