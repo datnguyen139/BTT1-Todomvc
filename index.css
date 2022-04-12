@@ -27,34 +27,33 @@ body {
     text-align: center;
 }
 
+.selectall {
+    margin-top: 5px;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    color: black;
+}
+
 .container .top h1 {
     font-size: 100px;
     font-weight: 300;
     text-align: center;
-    color: rgba(175, 47, 47, 0.15);
+    color: rgba(77, 8, 8, 0.15);
     text-rendering: optimizeLegibility;
     margin-bottom: 10px;
 }
 
-#newlist {
+.newlist {
     margin: 0;
     border: none;
-    width: 80%;
+    width: 93%;
     padding: 5px;
     float: left;
     font-size: 20px;
     border-radius: 10px;
-    background-color: rgb(187, 255, 14);
-}
-
-#newsubmit {
-    border: none;
-    padding: 4px;
-    width: 20%;
-    background: #d9d9d9;
-    color: #555;
-    font-size: 20px;
-    border-radius: 10px;
+    color: black;
+    background-color: whitesmoke;
 }
 
 .middle {
@@ -81,7 +80,7 @@ body {
     border-radius: 10px;
 }
 
-.to-do .text.complete {
+.to-do .text.checked {
     text-decoration: line-through;
 }
 
@@ -91,8 +90,9 @@ body {
     margin-left: 5px;
     border: none;
     border-radius: 10px;
-    font-size: 25px;
-    margin-bottom: 1px;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }
 
 .to-do .active {
@@ -105,7 +105,6 @@ body {
 
 .container .bottom {
     margin-top: 10px;
-    display: none;
 }
 
 span {
@@ -125,7 +124,13 @@ ul li {
 }
 
 a {
+    background-color: rgba(77, 8, 8, 0.15);
     color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: red;
 }
 
 .clearcompleted {

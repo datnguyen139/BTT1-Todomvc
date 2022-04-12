@@ -1,0 +1,5 @@
+{
+  "editor.tabSize": 2,
+  "search.searchEditor.defaultNumberOfContextLines": 2,
+  "editor.unfoldOnClickAfterEndOfLine": false
+}
